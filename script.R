@@ -1,9 +1,13 @@
+logger::log_info("Starting script")
+
 box::use(magrittr[`%>%`])
 
 dotenv::load_dot_env()
 
 bucket_input <- "whyr2022test"
 bucket_output <- "whyr2022testoutput"
+
+logger::log_info("Pulling latest file from {bucket_input}")
 
 latest_file <- aws.s3::get_bucket(bucket_input) %>%
   tibble::as_tibble() %>%
@@ -12,7 +16,7 @@ latest_file <- aws.s3::get_bucket(bucket_input) %>%
   dplyr::pull(Key) %>%
   stringr::str_replace("\\.rds", "")
 
-logger::log_info("Pulling latest file from {bucket_input}: {latest_file}")
+logger::log_info("Latest file from {bucket_input} pulled: {latest_file}.rds")
 
 s3_uri <- glue::glue("s3://{bucket_input}/{latest_file}.rds")
 
@@ -26,14 +30,15 @@ plot <- aws.s3::s3readRDS(s3_uri) %>%
 
 image_file <- glue::glue("output_{latest_file}.png")
 
-logger::log_info("Saving image: {image_file}")
+logger::log_info("Saving plot as image: {image_file}")
 
-ggplot2::ggsave(image_file, plot)
+ggplot2::ggsave(image_file, plot) %>%
+  suppressWarnings() %>%
+  suppressMessages()
 
 logger::log_info("Pushing image to {bucket_output}")
 
 aws.s3::put_object(image_file, image_file, bucket_output) %>%
-  suppressMessages() %>%
   invisible()
 
-logger::log_success("{image_file} created from {latest_file} and pushed to {bucket_output}")
+logger::log_success("{image_file} created from {latest_file}.rds and pushed to {bucket_output}")
