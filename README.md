@@ -1,14 +1,12 @@
-# why-r-2022-serverless-r-in-the-cloud
+# Why R? 2022: Serverless R in the Cloud
+### By: [Ismail Tigrek](www.linkedin.com/in/ismailtigrek)
 For my Why R? Turkey 2022 presentation
 
 # AWS Resources
 
-## S3 Buckets
+### S3 Buckets: _whyr2022_input_, _whyr2022_output_
 
-- Input bucket:
-- Output bucket:
-
-## ECR Repository: 
+### ECR Repository: whyr2022
 
 ## ECS Cluster:
 
