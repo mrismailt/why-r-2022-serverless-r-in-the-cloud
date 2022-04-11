@@ -4,7 +4,7 @@ For my Why R? Turkey 2022 presentation
 
 # AWS Resources
 
-### S3 Buckets: _whyr2022_input_, _whyr2022_output_
+### S3 Buckets: _whyr2022input_, _whyr2022output_
 
 ### ECR Repository: whyr2022
 
