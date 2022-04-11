@@ -6,7 +6,7 @@ For my Why R? Turkey 2022 presentation
 
 ### S3 Buckets: _whyr2022input_, _whyr2022output_
 
-### ECR Repository: whyr2022
+### ECR Repository: _whyr2022_
 
 ## ECS Cluster:
 
