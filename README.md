@@ -17,5 +17,7 @@ For my Why R? Turkey 2022 presentation
 1. Create two buckets:
   - For data input: _whyr2022test_
   - For image outputs: _whyr2022testoutput_
-3. `docker make -t whyr2022 .`
-4. 
+2. Create IAM user called ETL
+3. Set up AWS CLI
+4. `docker make -t whyr2022 .`
+5. 
