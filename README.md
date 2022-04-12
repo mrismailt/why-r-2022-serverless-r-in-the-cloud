@@ -48,3 +48,4 @@ Suggestions on how yo ucan improve this
 - Upload script to S3, make general image
 - Edge cases
 - Terraform
+- Mark used files
