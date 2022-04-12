@@ -47,3 +47,4 @@ Suggestions on how yo ucan improve this
 - Pass in keys
 - Upload script to S3, make general image
 - Edge cases
+- Terraform
