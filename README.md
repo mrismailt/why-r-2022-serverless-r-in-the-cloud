@@ -39,3 +39,10 @@ For my Why R? Turkey 2022 presentation
 2. `docker build -t whyr2022 .`
 3. `docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
 4. `docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
+
+# Further steps
+
+Suggestions on how yo ucan improve this
+
+- Pass in keys
+- Upload script to S3, make general image
