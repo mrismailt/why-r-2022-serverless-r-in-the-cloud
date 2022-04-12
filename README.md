@@ -32,3 +32,10 @@ For my Why R? Turkey 2022 presentation
 
 ## RStudio
 1. Create .env file with acces keyhs 
+
+
+# Deployment
+1. `aws ecr get-login-password --region us-east-1 --profile iamadmin-whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com`
+2. `docker build -t whyr2022 .`
+3. `docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
+4. `docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
