@@ -8,7 +8,7 @@ For my Why R? Turkey 2022 presentation
 
 ### ECR Repository: _whyr2022_
 
-## ECS Cluster:
+### ECS Cluster: _ETL_
 
 ## ECS Task
 
@@ -46,3 +46,4 @@ Suggestions on how yo ucan improve this
 
 - Pass in keys
 - Upload script to S3, make general image
+- Edge cases
