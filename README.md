@@ -1,5 +1,5 @@
 # Why R? 2022: Serverless R in the Cloud
-### By: [Ismail Tigrek](www.linkedin.com/in/ismailtigrek) (linkedin.com/in/ismailtigrek)
+### By: Ismail Tigrek (follow me: [linkedin.com/in/ismailtigrek](www.linkedin.com/in/ismailtigrek))
 For my Why R? Turkey 2022 presentation
 
 This tutorial will walk through deploying R code, machine learning models, or Shiny applications in the cloud environment. With this knowledge, you will be able to take any local R-based project you’ve built on your machine or at your company and deploy it into production on AWS using modern serverless and microservices architectures. In order to do this, you will learn how to properly containerize R code using Docker, allowing you to create reproducible environments. You will also learn how to set up event-based and time-based triggers. We will build out a real example that reads in live data, processes it, and writes it into a data lake, all in the cloud.
