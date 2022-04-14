@@ -25,6 +25,7 @@ Link to book:
 1. Create an IAM user called ETL that with the AdministratorAccess policy and save the Access keys (we will need them later)
 2. Create two buckets:
   - For data input: _whyr2022test_
+    - Set EventBridge events to on
   - For image outputs: _whyr2022testoutput_
 3. Set up CloudTrial data events (link)
 
