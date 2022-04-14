@@ -1,7 +1,7 @@
 #### ONE ####
 logger::log_info("Starting script")
 box::use(magrittr[`%>%`])
-dotenv::load_dot_env()
+dotenv::load_dot_env(".secrets")
 bucket_input <- "whyr2022input"
 bucket_output <- "whyr2022output"
 
@@ -35,13 +35,6 @@ ggplot2::ggsave(image_file, plot) %>%
 #### FIVE ####
 logger::log_info("Pushing image to {bucket_output}")
 aws.s3::put_object(image_file, image_file, bucket_output) %>%
-  invisible()
-
-#### SIX ####
-logger::log_info("Marking {latest_file}.rds as used")
-aws.s3::copy_object(glue::glue("{latest_file}.rds"), glue::glue("{latest_file}-used_{Sys.time()}.rds"), from_bucket = bucket_input, to_bucket = bucket_input) %>%
-  invisible()
-aws.s3::delete_object(glue::glue("{latest_file}.rds"), bucket = bucket_input) %>%
   invisible()
 
 #### END ####
