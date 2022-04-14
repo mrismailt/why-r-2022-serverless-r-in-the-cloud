@@ -26,6 +26,7 @@ Link to book:
 2. Create two buckets:
   - For data input: _whyr2022test_
   - For image outputs: _whyr2022testoutput_
+3. Set up CloudTrial data events (link)
 
 ## Your Computer
 1. Install and setup Docker Desktop (link)
