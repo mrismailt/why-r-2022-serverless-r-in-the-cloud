@@ -1,6 +1,10 @@
 # Why R? 2022: Serverless R in the Cloud
-### By: [Ismail Tigrek](www.linkedin.com/in/ismailtigrek)
+### By: Ismail Tigrek ([linkedin.com/in/ismailtigrek](www.linkedin.com/in/ismailtigrek))
 For my Why R? Turkey 2022 presentation
+
+This tutorial will walk through deploying R code, machine learning models, or Shiny applications in the cloud environment. With this knowledge, you will be able to take any local R-based project you’ve built on your machine or at your company and deploy it into production on AWS using modern serverless and microservices architectures. In order to do this, you will learn how to properly containerize R code using Docker, allowing you to create reproducible environments. You will also learn how to set up event-based and time-based triggers. We will build out a real example that reads in live data, processes it, and writes it into a data lake, all in the cloud.
+
+Link to book: 
 
 # AWS Resources (that are used in this codebase. You will need to change these based on your own resources)
 
@@ -10,9 +14,9 @@ For my Why R? Turkey 2022 presentation
 
 ### ECS Cluster: _ETL_
 
-## ECS Task
+### ECS Task: _whyr2022_
 
-## EventBridge Rule:
+### EventBridge Rule: _whyr2022input_upload_
 
 # Setting Up
 
@@ -21,7 +25,9 @@ For my Why R? Turkey 2022 presentation
 1. Create an IAM user called ETL that with the AdministratorAccess policy and save the Access keys (we will need them later)
 2. Create two buckets:
   - For data input: _whyr2022test_
+    - Set EventBridge events to on
   - For image outputs: _whyr2022testoutput_
+3. Set up CloudTrial data events (link)
 
 ## Your Computer
 1. Install and setup Docker Desktop (link)
@@ -48,3 +54,4 @@ Suggestions on how yo ucan improve this
 - Upload script to S3, make general image
 - Edge cases
 - Terraform
+- Mark used files
