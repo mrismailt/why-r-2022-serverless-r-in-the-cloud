@@ -6,6 +6,9 @@ This tutorial will walk through deploying R code, machine learning models, or Sh
 
 Link to book: 
 
+![image](https://user-images.githubusercontent.com/6436162/163592027-e2bc34d2-5106-404b-b430-23da5d807f91.png)
+
+
 # AWS Resources (that are used in this codebase. You will need to change these based on your own resources)
 
 ### S3 Buckets: _whyr2022input_, _whyr2022output_
