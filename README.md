@@ -29,26 +29,25 @@ These are the AWS resources and their names as used in this codebase. You will n
 ## AWS
 
 1. [Create and activate an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
-2. Create an IAM user called ETL that with the AdministratorAccess policy and save the Access keys (we will need them later)
-3. Create two buckets:
-  - For data input: _whyr2022test_
-    - Set EventBridge events to on
-  - For image outputs: _whyr2022testoutput_
-4. Set up CloudTrial data events (link)
+2. [Retrive access keys](https://www.msp360.com/resources/blog/how-to-find-your-aws-access-key-id-and-secret-access-key/)
+3. Create S3 buckets
+ - Create input bucket (_whyr2022test_)
+ - Creat output bucket (_whyr2022testoutput_)
+ - [Enable CloudTrail event logging for S3 buckets and objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html)
+
+4. Create ECR repository (_whyr2022_)
+5. Creaet ECS cluster (_ETL_)
+6. Create ECS task defintion (_whyr2022_)
 
 ## Your Computer
-1. Install and setup Docker Desktop (link)
-2. Install and setup AWS CLI (link)
-3. Create an AWS profile called etl-whyr2022 (link)
-6. `docker make -t whyr2022 .`
+1. [Install and setup Docker Desktop](https://docs.docker.com/desktop/windows/install/)
+2. [Install and setup AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+3. [Create named AWS profile called (_etl-whyr2022_)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+6. Put access keys into _.secrets_
 7. 
 
-## RStudio
-1. Create .env file with acces keyhs 
-
-
 # Deployment
-1. `aws ecr get-login-password --region us-east-1 --profile iamadmin-whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com`
+1. `aws ecr get-login-password --region us-east-1 --profile whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com`
 2. `docker build -t whyr2022 .`
 3. `docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
 4. `docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
