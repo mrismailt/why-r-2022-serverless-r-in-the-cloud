@@ -65,7 +65,22 @@ We used the access keys of our root AWS account. This is not ideal for security 
 
 Ideally, you don't want to store your access keys inside your code or docker image. Instead, pass in security keys as environment variables when creating your ECS task defintion
 
-- Upload script to S3, make general image
-- Edge cases
-- Terraform
-- Mark used files
+## Replace Docker image with general image
+
+We baked our script into our Docker image. This is not ideal since everytime you update your code you will need to rebuild your Docker image and re-push to ECR. Instead, create a general Docker image that can read in the name of a script to pull from an S3 bucket (you can pass this name in as an ECS task environment variable). This way, you can have a bucket that contains your R scripts and you will only need to build your Docker image once. Everytime your container is deployed, it will pull the latest version of your script from the S3 bucket.
+
+## Make code more robust
+
+Our script is running on a lot of assumptions, such as:
+- only one file is uploaded to _whyr2022input_ at a time
+- only RDS files are uploaded to _whyr2022input_
+- the files uploaded to _whyr2022input_ are dataframes with two numeric columns
+- 
+Production code should not run on any assumptions. Everything should be validated and possible errors or edge cases should be gracefully handled.
+
+Another thing that can be done to enhance the pipeline is to mark "used" input files. This can be done by appending "-used_<TIMESTAMP>" to the file name.
+
+## Convert all infastructure to code
+
+We provised all our resources through the AWS Console. This is not ideal since we cannot easily recreate the allocation and configuration of these resources. Ideally, you want to codify this process using a Infastructure-as-code solution (ex: Terraform)
+
