@@ -29,7 +29,7 @@ These are the AWS resources and their names as used in this codebase. You will n
 ## AWS
 
 1. [Create and activate an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
-2. [Retrive access keys](https://www.msp360.com/resources/blog/how-to-find-your-aws-access-key-id-and-secret-access-key/)
+2. [Retrieve access keys](https://www.msp360.com/resources/blog/how-to-find-your-aws-access-key-id-and-secret-access-key/)
 3. Create S3 buckets
  - Create input bucket (_whyr2022test_)
  - Creat output bucket (_whyr2022testoutput_)
