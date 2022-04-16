@@ -14,15 +14,15 @@ This tutorial has been publish inthe Why R? 2022 Abstact Book: [link](https://wh
 
 These are the AWS resources and their names as used in this codebase. You will need to change the names in your version of the code to match the names of your resources. You should be able to create all the resources below with the same names except for the S3 buckets.
 
-### S3 Buckets: _whyr2022input_, _whyr2022output_
+#### S3 Buckets: _whyr2022input_, _whyr2022output_
 
-### ECR Repository: _whyr2022_
+#### ECR Repository: _whyr2022_
 
-### ECS Cluster: _ETL_
+#### ECS Cluster: _ETL_
 
-### ECS Task: _whyr2022_
+#### ECS Task: _whyr2022_
 
-### EventBridge Rule: _whyr2022input_upload_
+#### EventBridge Rule: _whyr2022input_upload_
 
 # Setting Up
 
@@ -38,19 +38,57 @@ These are the AWS resources and their names as used in this codebase. You will n
 4. Create ECR repository (_whyr2022_)
 5. Creaet ECS cluster (_ETL_)
 6. Create ECS task defintion (_whyr2022_)
+7. Create EventBridge rule (_whyr2022input_upload_)
+ - Create event pattern
+
+```
+{
+  "source": ["aws.s3"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventSource": ["s3.amazonaws.com"],
+    "eventName": ["PutObject"],
+    "requestParameters": {
+      "bucketName": ["whyr2022input"]
+    }
+  }
+}
+```
+- Set target to ECS task _whyr2022_ in ECS cluster _ETL_
 
 ## Your Computer
 1. [Install and setup Docker Desktop](https://docs.docker.com/desktop/windows/install/)
 2. [Install and setup AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 3. [Create named AWS profile called (_etl-whyr2022_)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
-6. Put access keys into _.secrets_
-7. 
+4. Put access keys into _.secrets_ 
 
 # Deployment
-1. `aws ecr get-login-password --region us-east-1 --profile whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com`
-2. `docker build -t whyr2022 .`
-3. `docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
-4. `docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest`
+1. Authenticate Docker client to registery
+
+```
+aws ecr get-login-password --region us-east-1 --profile whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com
+```
+2. Build Docker image
+
+```
+docker build -t whyr2022 .
+```
+
+3. Tag Docker image
+
+```
+docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest
+```
+
+4. Push Docker image to AWS ECR
+
+```
+docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest
+```
+
+## View logs
+
+You can view the logs of all container runs in AWS CloudWatch under Log Groups
 
 # Further steps
 
