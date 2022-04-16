@@ -59,7 +59,7 @@ These are the AWS resources and their names as used in this codebase. You will n
 ## Your Computer
 1. [Install and setup Docker Desktop](https://docs.docker.com/desktop/windows/install/)
 2. [Install and setup AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-3. [Create named AWS profile called (_etl-whyr2022_)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+3. [Create named AWS profile called (_whyr2022_)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
 4. Put access keys into _.secrets_ 
 
 # Deployment
