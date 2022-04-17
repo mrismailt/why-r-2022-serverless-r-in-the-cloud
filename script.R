@@ -9,7 +9,6 @@ bucket_output <- "whyr2022output"
 logger::log_info("Pulling latest file from {bucket_input}")
 latest_file <- aws.s3::get_bucket(bucket_input) %>%
   tibble::as_tibble() %>%
-  dplyr::filter(!stringr::str_detect(Key, "\\-used\\_")) %>%
   dplyr::arrange(dplyr::desc(LastModified)) %>%
   dplyr::slice(1) %>%
   dplyr::pull(Key) %>%
