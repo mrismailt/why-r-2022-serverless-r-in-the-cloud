@@ -64,24 +64,22 @@ These are the AWS resources and their names as used in this codebase. You will n
 
 # Deployment
 1. Authenticate Docker client to registry
-
 ```
 aws ecr get-login-password --region us-east-1 --profile whyr2022 | docker login --username AWS --password-stdin 631607388267.dkr.ecr.us-east-1.amazonaws.com
 ```
 2. Build Docker image
-
 ```
 docker build -t whyr2022 .
 ```
-
-3. Tag Docker image
-
+3. Run Docker image locally to test
+```
+docker run whyr2022
+```
+4. Tag Docker image
 ```
 docker tag whyr2022:latest 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest
 ```
-
-4. Push Docker image to AWS ECR
-
+5. Push Docker image to AWS ECR
 ```
 docker push 631607388267.dkr.ecr.us-east-1.amazonaws.com/whyr2022:latest
 ```
