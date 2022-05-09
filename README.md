@@ -7,8 +7,7 @@ This tutorial will walk through deploying R code, machine learning models, or Sh
 
 This tutorial has been published in the Why R? 2022 Abstract Book: [link](https://whyr.pl/2022/turkey/abstract_book/konu%C5%9Fmalar.html#serverless-r-in-the-cloud---deploying-r-into-production-with-aws-and-docker)
 
-![image](https://user-images.githubusercontent.com/6436162/163592027-e2bc34d2-5106-404b-b430-23da5d807f91.png)
-
+![image](https://user-images.githubusercontent.com/6436162/167397606-17b9e8ad-3eac-478f-bb72-13e4c327f4d2.png)
 
 # AWS Resources
 
